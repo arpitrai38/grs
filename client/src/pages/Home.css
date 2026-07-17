@@ -1,0 +1,119 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #ffffff;
+}
+
+.main-logo{
+    width:220px;
+    height:auto;
+}
+
+.university-name{
+    color:#1e63ff;
+    font-size:2rem;
+    font-weight:500;
+    margin-top:10px;
+}
+
+.portal-name{
+    color:#222;
+    font-size:2rem;
+    font-weight:400;
+    margin-top:10px;
+}
+
+.portal-card{
+    background:#fff;
+    border-radius:12px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+    min-height:220px;
+    box-shadow:0 0 20px rgba(76,111,255,.35);
+    transition:.3s;
+    cursor:pointer;
+}
+
+.portal-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(76,111,255,.5);
+}
+
+.card-img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+}
+
+.portal-card h4{
+    color:#1e63ff;
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.portal-card p{
+    color:#222;
+    font-size:22px;
+}
+
+.footer{
+    background:#1e63ff;
+    color:#fff;
+    text-align:center;
+    padding:15px;
+    margin-top:70px;
+    font-size:20px;
+}
+
+@media(max-width:992px){
+
+.main-logo{
+    width:150px;
+}
+
+.university-name{
+    font-size:28px;
+}
+
+.portal-name{
+    font-size:22px;
+}
+
+.portal-card{
+    flex-direction:column;
+    text-align:center;
+    min-height:auto;
+}
+
+.card-img{
+    width:90px;
+}
+
+.portal-card h4{
+    font-size:24px;
+}
+
+.portal-card p{
+    font-size:18px;
+}
+
+.footer{
+    font-size:15px;
+}
+
+}

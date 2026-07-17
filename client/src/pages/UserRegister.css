@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    height:100%;
+    background:#fff;
+}
+
+/* ===========================
+   LEFT PANEL
+=========================== */
+
+.left-panel{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0b2f35,#04664e);
+    color:#fff;
+}
+
+.left-content{
+    width:75%;
+    max-width:500px;
+}
+
+.icon-box{
+    width:95px;
+    height:95px;
+    margin:auto;
+    border-radius:25px;
+    background:#18c67d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+.icon-box i{
+    font-size:45px;
+    color:#fff;
+}
+
+.left-content h1{
+    font-size:48px;
+    font-weight:700;
+}
+
+.left-content p{
+    color:#b7f7dd;
+    font-size:20px;
+    line-height:1.7;
+}
+
+.steps{
+    margin-top:50px;
+}
+
+.step{
+    padding:22px 0;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.step:last-child{
+    border-bottom:none;
+}
+
+.step-number{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    border:2px solid rgba(255,255,255,.2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:600;
+    font-size:18px;
+}
+
+.step h5{
+    margin:0;
+    font-size:23px;
+}
+
+.step small{
+    color:#b7f7dd;
+    font-size:15px;
+}
+
+/* ===========================
+   RIGHT PANEL
+=========================== */
+
+.right-panel{
+    min-height:100vh;
+    background:#fff;
+}
+
+.register-card{
+    width:100%;
+    max-width:650px;
+    padding:45px;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+}
+
+/* Heading */
+
+.register-card h2{
+    font-size:45px;
+    margin-top:15px;
+}
+
+.register-card p{
+    font-size:17px;
+}
+
+/* Progress */
+
+.step-progress{
+    display:flex;
+    align-items:center;
+    margin:35px 0;
+}
+
+.circle{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:600;
+    border:2px solid #d9dfe8;
+    color:#8d99ae;
+    background:#fff;
+}
+
+.circle.active{
+    background:#18b978;
+    color:#fff;
+    border:none;
+}
+
+.line{
+    flex:1;
+    height:2px;
+    background:#d9dfe8;
+}
+
+/* Form */
+
+.form-label{
+    font-weight:600;
+    color:#1d2b42;
+}
+
+.form-control,
+.form-select{
+    height:55px;
+    border-radius:14px;
+    border:1px solid #d9dfe8;
+    font-size:16px;
+}
+
+.form-control:focus,
+.form-select:focus{
+    box-shadow:0 0 0 .2rem rgba(24,185,120,.15);
+    border-color:#18b978;
+}
+
+/* Password Eye */
+
+.eye-btn{
+    position:absolute;
+    right:15px;
+    top:50%;
+    transform:translateY(-50%);
+    border:none;
+    background:none;
+    color:#8c97a8;
+    font-size:20px;
+}
+
+.eye-btn:hover{
+    color:#18b978;
+}
+
+/* Button */
+
+.next-btn{
+    height:58px;
+    background:#18b978;
+    border:none;
+    border-radius:14px;
+    font-size:20px;
+    font-weight:600;
+    color:#fff;
+    transition:.3s;
+    box-shadow:0 10px 20px rgba(24,185,120,.25);
+}
+
+.next-btn:hover{
+    background:#12a86c;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* Link */
+
+.text-success{
+    color:#18b978 !important;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.left-panel{
+    min-height:auto;
+    padding:60px 25px;
+}
+
+.left-content{
+    width:100%;
+}
+
+.left-content h1{
+    font-size:35px;
+}
+
+.left-content p{
+    font-size:18px;
+}
+
+.register-card{
+    padding:30px;
+}
+
+.register-card h2{
+    font-size:34px;
+}
+
+.step h5{
+    font-size:18px;
+}
+
+.step small{
+    font-size:14px;
+}
+
+}
+
+@media(max-width:576px){
+
+.register-card{
+    padding:20px;
+}
+
+.logo{
+    width:55px;
+}
+
+.register-card h2{
+    font-size:30px;
+}
+
+.left-content h1{
+    font-size:30px;
+}
+
+.left-content p{
+    font-size:16px;
+}
+
+.next-btn{
+    font-size:18px;
+}
+
+}
