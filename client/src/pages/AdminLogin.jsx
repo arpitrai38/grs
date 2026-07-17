@@ -47,11 +47,13 @@ const AdminLogin = () => {
               Admin Email
             </label>
 
-            <input
-              type="email"
-              className="form-control"
-              placeholder="admin@university.edu"
-            />
+           <input
+  type="email"
+  className="form-control mb-4"
+  placeholder="you@example.com"
+  autoComplete="new-email"
+  name="email"
+/>
 
           </div>
 
@@ -65,12 +67,13 @@ const AdminLogin = () => {
 
             <div className="position-relative">
 
-              <input
-                type={showPassword ? "text" : "password"}
-                className="form-control pe-5"
-                placeholder="Enter admin password"
-              />
-
+          <input
+  type={showPassword ? "text" : "password"}
+  className="form-control pe-5"
+  placeholder="Enter your password"
+  autoComplete="new-password"
+  name="password"
+/>
               <button
                 className="eye-btn"
                 type="button"

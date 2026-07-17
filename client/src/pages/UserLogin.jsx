@@ -79,21 +79,25 @@ const UserLogin = () => {
               </label>
 
               <input
-                type="email"
-                className="form-control mb-4"
-                placeholder="you@example.com"
-              />
+  type="email"
+  className="form-control mb-4"
+  placeholder="you@example.com"
+  autoComplete="new-email"
+  name="email"
+/>
 
               <label className="form-label">
                 Password
               </label>
 
               <div className="position-relative">
-  <input
-    type={showPassword ? "text" : "password"}
-    className="form-control pe-5"
-    placeholder="Enter your password"
-  />
+ <input
+  type={showPassword ? "text" : "password"}
+  className="form-control pe-5"
+  placeholder="Enter your password"
+  autoComplete="new-password"
+  name="password"
+/>
 
   <button
     type="button"
