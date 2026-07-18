@@ -1,293 +1,307 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
-html,
-body,
-#root{
-    width:100%;
-    height:100%;
-    background:#fff;
+.register-wrapper {
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
 }
 
-/* ===========================
-   LEFT PANEL
-=========================== */
-
-.left-panel{
-    min-height:100vh;
-    background:linear-gradient(135deg,#0b2f35,#04664e);
-    color:#fff;
+/* ================= LEFT SECTION (Green) ================= */
+.register-left {
+  flex: 1; /* Adjusts evenly with the right side */
+  background: radial-gradient(circle at center, #104938 0%, #072a20 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  padding: 40px;
 }
 
-.left-content{
-    width:75%;
-    max-width:500px;
+.left-content {
+  max-width: 480px;
+  text-align: center;
 }
 
-.icon-box{
-    width:95px;
-    height:95px;
-    margin:auto;
-    border-radius:25px;
-    background:#18c67d;
+.brand-icon-green {
+  width: 72px;
+  height: 72px;
+  background: #10b981; /* Emerald green matching the image */
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+  color: #fff;
+}
+
+.portal-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.portal-subtitle {
+  font-size: 14px;
+  color: #a7f3d0; /* Light emerald for readability */
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.left-steps-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.left-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  padding: 8px 0;
+}
+
+.step-circle-left {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.step-text-left h5 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: #ffffff;
+}
+
+.step-text-left small {
+  font-size: 12px;
+  color: #a7f3d0;
+}
+
+.opacity-circle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #6ee7b7;
+}
+
+.opacity-text h5, .opacity-text small {
+  opacity: 0.7;
+}
+
+.step-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 16px 0;
+  margin-left: 26px; /* Offset to align mostly under the text */
+}
+
+
+/* ================= RIGHT SECTION (Form) ================= */
+.register-right{
+    background-color: white;
+    flex: 0.7;
     display:flex;
     justify-content:center;
     align-items:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    padding:20px 30px;   /* pehle 40px tha */
 }
 
-.icon-box i{
-    font-size:45px;
-    color:#fff;
-}
-
-.left-content h1{
-    font-size:48px;
-    font-weight:700;
-}
-
-.left-content p{
-    color:#b7f7dd;
-    font-size:20px;
-    line-height:1.7;
-}
-
-.steps{
-    margin-top:50px;
-}
-
-.step{
-    padding:22px 0;
-    border-bottom:1px solid rgba(255,255,255,.15);
-}
-
-.step:last-child{
-    border-bottom:none;
-}
-
-.step-number{
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:rgba(255,255,255,.12);
-    border:2px solid rgba(255,255,255,.2);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:600;
-    font-size:18px;
-}
-
-.step h5{
-    margin:0;
-    font-size:23px;
-}
-
-.step small{
-    color:#b7f7dd;
-    font-size:15px;
-}
-
-/* ===========================
-   RIGHT PANEL
-=========================== */
-
-.right-panel{
-    min-height:100vh;
-    background:#fff;
-}
-
-.register-card{
+.right-content{
     width:100%;
-    max-width:650px;
-    padding:45px;
+    max-width:650px;   /* pehle 550px tha */
 }
 
-.logo{
-    width:70px;
-    height:70px;
-    object-fit:contain;
+.uni-logo-reg {
+  width: 70px;
+  height: auto;
+  margin-bottom: 24px;
 }
 
-/* Heading */
-
-.register-card h2{
-    font-size:45px;
-    margin-top:15px;
+.form-title {
+  font-size: 26px;
+  font-weight: 650;
+  color: #111827;
+  margin-bottom: 6px;
 }
 
-.register-card p{
-    font-size:17px;
+.form-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
 }
 
-/* Progress */
-
-.step-progress{
-    display:flex;
-    align-items:center;
-    margin:35px 0;
+/* Progress Indicator */
+.progress-indicator {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
 }
 
-.circle{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:600;
-    border:2px solid #d9dfe8;
-    color:#8d99ae;
-    background:#fff;
+.prog-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.circle.active{
-    background:#18b978;
-    color:#fff;
-    border:none;
+.prog-circle.active {
+  background-color: #10b981;
+  color: #fff;
 }
 
-.line{
-    flex:1;
-    height:2px;
-    background:#d9dfe8;
+.prog-circle.inactive {
+  background-color: #fff;
+  border: 2px solid #e5e7eb;
+  color: #9ca3af;
 }
 
-/* Form */
-
-.form-label{
-    font-weight:600;
-    color:#1d2b42;
+.prog-line {
+  flex: 1;
+  height: 2px;
+  background-color: #e5e7eb;
+  margin: 0 12px;
 }
 
-.form-control,
-.form-select{
-    height:55px;
-    border-radius:14px;
-    border:1px solid #d9dfe8;
-    font-size:16px;
+/* Form Grid */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Exact 2 column layout from image */
+  gap: 20px;
 }
 
-.form-control:focus,
-.form-select:focus{
-    box-shadow:0 0 0 .2rem rgba(24,185,120,.15);
-    border-color:#18b978;
+.input-group {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Password Eye */
-
-.eye-btn{
-    position:absolute;
-    right:15px;
-    top:50%;
-    transform:translateY(-50%);
-    border:none;
-    background:none;
-    color:#8c97a8;
-    font-size:20px;
+.input-group.full-width {
+  width: 100%;
 }
 
-.eye-btn:hover{
-    color:#18b978;
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
 }
 
-/* Button */
-
-.next-btn{
-    height:58px;
-    background:#18b978;
-    border:none;
-    border-radius:14px;
-    font-size:20px;
-    font-weight:600;
-    color:#fff;
-    transition:.3s;
-    box-shadow:0 10px 20px rgba(24,185,120,.25);
+.input-group label span {
+  color: #ef4444; /* Red asterisk */
 }
 
-.next-btn:hover{
-    background:#12a86c;
-    color:#fff;
-    transform:translateY(-2px);
+.input-group input, .input-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  color: #111827;
 }
 
-/* Link */
-
-.text-success{
-    color:#18b978 ;
+/* Specific styling for placeholder color matching */
+.input-group input::placeholder {
+  color: #9ca3af;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media(max-width:992px){
-
-.left-panel{
-    min-height:auto;
-    padding:60px 25px;
+.input-group input:focus, .input-group select:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
-.left-content{
-    width:100%;
+.password-wrapper {
+  position: relative;
 }
 
-.left-content h1{
-    font-size:35px;
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.left-content p{
-    font-size:18px;
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #10b981; /* Matches left side branding */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
 }
 
-.register-card{
-    padding:30px;
+.submit-btn:hover {
+  background-color: #059669; /* Darker emerald on hover */
 }
 
-.register-card h2{
-    font-size:34px;
+.auth-switch-text {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
 }
 
-.step h5{
-    font-size:18px;
+.sign-in-link {
+  color: #10b981;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.step small{
-    font-size:14px;
+.sign-in-link:hover {
+  text-decoration: underline;
 }
 
-}
-
-@media(max-width:576px){
-
-.register-card{
-    padding:20px;
-}
-
-.logo{
-    width:55px;
-}
-
-.register-card h2{
-    font-size:30px;
-}
-
-.left-content h1{
-    font-size:30px;
-}
-
-.left-content p{
-    font-size:16px;
-}
-
-.next-btn{
-    font-size:18px;
-}
-
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .register-wrapper {
+    flex-direction: column;
+  }
+  .register-left, .register-right {
+    flex: 1;
+    width: 100%;
+  }
+  .register-left {
+    padding: 60px 20px;
+  }
+  .form-grid {
+    grid-template-columns: 1fr; /* Stack into single column on mobile */
+  }
 }

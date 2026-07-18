@@ -1,9 +1,24 @@
 import React, { useState } from "react";
 import "./AdminLogin.css";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 
 const AdminLogin = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setData] = useState({
+    email :'',
+    password:''
+  });
+  const handleChange = (e)=>{
+    // console.log(e.target.value);
+setData(()=>({...data,[e.target.name]:e.target.value}))    
+
+  }
+  console.log(data)
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    const res = await axios.post('http://localhost:5000/api/admin/login',data)
+    console.log(res);
+    
+  }
 
   return (
     <div className="admin-page">
@@ -52,7 +67,7 @@ const AdminLogin = () => {
   className="form-control mb-4"
   placeholder="you@example.com"
   autoComplete="new-email"
-  name="email"
+  name="email" onChange={handleChange}
 />
 
           </div>
@@ -72,7 +87,7 @@ const AdminLogin = () => {
   className="form-control pe-5"
   placeholder="Enter your password"
   autoComplete="new-password"
-  name="password"
+  name="password" onChange={handleChange}
 />
               <button
                 className="eye-btn"
