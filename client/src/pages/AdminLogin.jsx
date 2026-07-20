@@ -1,142 +1,186 @@
 import React, { useState } from "react";
-import "./AdminLogin.css";
-import { data, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AdminLogin = () => {
-  const [showPassword, setData] = useState({
-    email :'',
-    password:''
-  });
-  const handleChange = (e)=>{
-    // console.log(e.target.value);
-setData(()=>({...data,[e.target.name]:e.target.value}))    
+  const navigate = useNavigate();
 
-  }
-  console.log(data)
-  const handleSubmit = async(e)=>{
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:5000/api/admin/login',data)
-    console.log(res);
-    
-  }
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/admin/login",
+        data
+      );
+
+      console.log(res.data);
+
+      // Check the backend's response
+      if (res.data.msg === "success") {
+
+        alert("Login Successful");
+
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("adminName", res.data.name);
+
+        navigate("/admin/dashboard");
+
+      } else {
+        alert("error");
+      }
+
+    } catch (err) {
+      console.error(err);
+
+      if (err.response) {
+        alert(err.response.data.msg || "Login Failed");
+      } else {
+        alert("Server Error");
+      }
+    }
+  };
 
   return (
-    <div className="admin-page">
-
-      <div className="card admin-card border-0">
-
+    <div
+      className="d-flex justify-content-center align-items-center min-vh-100"
+      style={{
+        background:
+          "linear-gradient(135deg,#171c35,#2c2a72,#171c35)",
+      }}
+    >
+      <div
+        className="card border-0 shadow-lg"
+        style={{
+          width: "600px",
+          borderRadius: "18px",
+          overflow: "hidden",
+        }}
+      >
         {/* Header */}
-
-        <div className="admin-header text-center">
-
-          <div className="shield-box">
+        <div
+          className="text-center text-white p-5"
+          style={{
+            background:
+              "linear-gradient(135deg,#2f3a8f,#6d28d9)",
+          }}
+        >
+          <div
+            className="mx-auto mb-3 d-flex justify-content-center align-items-center"
+            style={{
+              width: "85px",
+              height: "85px",
+              borderRadius: "20px",
+              background: "rgba(255,255,255,.15)",
+              fontSize: "40px",
+            }}
+          >
             <i className="bi bi-shield-lock-fill"></i>
           </div>
 
-          <h2>Admin Portal</h2>
+          <h1 className="fw-bold">Admin Portal</h1>
 
-          <p>
+          <p className="mb-0 fs-5 text-light">
             LNM University Grievance Redressal System
           </p>
-
         </div>
 
         {/* Body */}
-
-        <div className="admin-body">
-
+        <div className="card-body p-5">
           <div className="text-center mb-4">
-
-            <span className="access-badge">
+            <span
+              className="badge rounded-pill px-4 py-3"
+              style={{
+                background: "#efe9ff",
+                color: "#5b3df5",
+                border: "1px solid #cfc4ff",
+                fontSize: "15px",
+              }}
+            >
               <i className="bi bi-lock-fill me-2"></i>
               RESTRICTED ACCESS
             </span>
-
           </div>
 
-          {/* Email */}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-4">
+              <label className="form-label fw-semibold">
+                Admin Email
+              </label>
 
-          <div className="mb-4">
-
-            <label className="form-label fw-semibold">
-              Admin Email
-            </label>
-
-           <input
-  type="email"
-  className="form-control mb-4"
-  placeholder="you@example.com"
-  autoComplete="new-email"
-  name="email" onChange={handleChange}
-/>
-
-          </div>
-
-          {/* Password */}
-
-          <div className="mb-4">
-
-            <label className="form-label fw-semibold">
-              Password
-            </label>
-
-            <div className="position-relative">
-
-          <input
-  type={showPassword ? "text" : "password"}
-  className="form-control pe-5"
-  placeholder="Enter your password"
-  autoComplete="new-password"
-  name="password" onChange={handleChange}
-/>
-              <button
-                className="eye-btn"
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                <i
-                  className={`bi ${
-                    showPassword ? "bi-eye-slash-fill" : "bi-eye-fill"
-                  }`}
-                ></i>
-              </button>
-
+              <input
+                type="email"
+                name="email"
+                className="form-control form-control-lg"
+                placeholder="admin@university.edu"
+                value={data.email}
+                onChange={handleChange}
+                required
+              />
             </div>
 
+            <div className="mb-4">
+              <label className="form-label fw-semibold">
+                Password
+              </label>
+
+              <input
+                type="password"
+                name="password"
+                className="form-control form-control-lg"
+                placeholder="Enter admin password"
+                value={data.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="btn text-white w-100 py-3 fw-bold"
+              style={{
+                background:
+                  "linear-gradient(90deg,#4f46e5,#7c3aed)",
+                borderRadius: "12px",
+                fontSize: "22px",
+              }}
+            >
+              <i className="bi bi-box-arrow-in-right me-2"></i>
+              Sign In as Admin
+            </button>
+          </form>
+
+          <div className="text-center mt-4">
+            <a href="#" className="text-decoration-none fw-semibold">
+              Forgot password?
+            </a>
+
+            <span className="mx-2">•</span>
+
+            <Link to="/" className="text-decoration-none fw-semibold">
+              ← Back to Home
+            </Link>
           </div>
 
-          {/* Login */}
+          <hr className="my-4" />
 
-          <button className="btn login-btn">
-
-            <i className="bi bi-box-arrow-in-right me-2"></i>
-
-            Sign In as Admin
-
-          </button>
-
-          {/* Links */}
-
-          <div className="bottom-links">
-
-            <a href="#">Forgot password?</a>
-
-            <Link to="/">← Back to Home</Link>
-
-          </div>
-
-          <hr />
-
-          <p className="footer-text">
-
-            © 2024 LNM University • Admin access is logged and monitored
-
+          <p className="text-center text-secondary small mb-0">
+            ©2026 LNM University • Admin access is logged and monitored
           </p>
-
         </div>
-
       </div>
-
     </div>
   );
 };

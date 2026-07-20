@@ -1,38 +1,58 @@
-
-const express=require('express')
-const routes=express.Router();
-// import Admin model
-const Admin = require('../models/Admin');
-const jwt=require('jsonwebtoken')
-//admin login code
-routes.post('/login',async(req,res)=>{
-
-    try{    
-        const{email,password}=req.body;
+const express = require('express')
+const routes = express.Router();
+const Admin = require('../models/Admin') 
+const jwt = require('jsonwebtoken')
+//admin register code
+routes.post('/register',async (req,res)=>{
+    try{
+        const {name, email, password} = req.body;
         //check admin exist or not
-        if(!email){
-            return res.json({msg: 'Email is Entered'})}
-            const user=await Admin.findOne({email:email});
-            if(!user){return res.json({"msg":"Email Not Found"})
-            }
-        
-        if(user.password==password){
-            const token = jwt.sign({id:user._id}, process.env.JWT_SECRET, { expiresIn: "1d" });
-            res.json({
-                "msg": "success",
-                "adminId": user._id,
-                "name": user.name,
-                "token": token
-            })
+        const isExist = await Admin.countDocuments();
+        if(isExist>0){
+            return res.json({"msg":"Admin already register"})
         }
-        else{
-            return res.json({"msg":"Password is Incorrect"})
+        //check
+        const user = await Admin.findOne({email:email})
+        if(user){
+            return res.json({"msg":"Email already Register"})
         }
+        const a = await new Admin(req.body);
+        a.save();
+        res.json({"msg":"Admin Registered Successfully"})
     }catch(er){
-
         console.log(er);
-        res.json({"msg": " Server Error"});
-        
+        console.log({"msg":"Admin Not Register Successfully"})
     }
 })
-module.exports=routes;
+
+routes.post('/login', async(req,res)=>{
+    try{
+        const {email , password} = req.body;
+        if(!email){
+            return res.json({"msg":"Email not enterd"})
+        }
+
+        const user = await Admin.findOne({email:email})
+        if(!user){
+            return res.json({"msg":req.body})
+        }
+
+        if(user.password==password){
+            const token = jwt.sign({id:user._id},process.env.JWT_SECRET,{'expiresIn':'1D'})
+            res.json({
+                "msg":"success",
+                "adminId":"user_id",
+                "name":user.name,
+                "token":token
+            }
+        )
+        }else{
+            return res.json({"msg":"password is incorrect"})
+        }
+    }catch(er){
+        console.log(er);
+        res.json({"msg":"Server error"})
+    }
+})
+
+module.exports = routes;

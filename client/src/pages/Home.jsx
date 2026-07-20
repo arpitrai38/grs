@@ -30,46 +30,50 @@ const Home = () => {
             
             {/* Admin Login Card */}
             <div className="col-lg-4 col-md-6 mb-4">
+                               <Link to="/adminlogin" className="card-title-link">
+
               <div className="login-card">
                 <div className="icon-container">
                   <img src={admin} alt="Admin Icon" className="card-icon" />
                 </div>
                 <div className="text-container">
-                  <Link to="/admin" className="card-title-link">
+                 
                     Admin Login
-                  </Link>
+                  
                   <span className="card-subtitle">For Admin Login</span>
                 </div>
-              </div>
+              </div></Link>
             </div>
 
             {/* User Registration Card */}
             <div className="col-lg-4 col-md-6 mb-4">
+              <Link to="/UserRegister" className="card-title-link">
               <div className="login-card">
                 <div className="icon-container">
                   <img src={register} alt="Register Icon" className="card-icon" />
                 </div>
                 <div className="text-container">
-<Link to="/UserRegister" className="card-title-link">
+
   User Registration
-</Link>                  <span className="card-subtitle">For User Registration</span>
+                 <span className="card-subtitle">For User Registration</span>
                 </div>
-              </div>
+              </div></Link> 
             </div>
 
             {/* User Login Card */}
             <div className="col-lg-4 col-md-6 mb-4">
+               <Link to="/UserLogin" className="card-title-link">
               <div className="login-card">
                 <div className="icon-container">
                   <img src={user} alt="User Icon" className="card-icon" />
                 </div>
                 <div className="text-container">
-                <Link to="/UserLogin" className="card-title-link">
+               
   User Login
-</Link>
+
                   <span className="card-subtitle">For User Login</span>
                 </div>
-              </div>
+              </div></Link>
             </div>
 
           </div>
